@@ -42,11 +42,10 @@ class AppState extends State<App>
                 child: new Text('${_cityEntered == null ? defaultCity : _cityEntered}',
                   style: cityStyle(),),
               ),
-        //extendBody: true,
         appBar: AppBar(
           title: Text('Klimatic',
             style: TextStyle( fontFamily: "Quantico"),),
-          leading: /*Stack(alignment: Alignment.center,children: <Widget>[Container(margin: EdgeInsets.fromLTRB(4.0, 0.0, 0.0, 8.0),child:Icon(Icons.wb_sunny,color: Colors.yellow,)),*/Icon(Icons.cloud),//,])
+          leading: Icon(Icons.cloud),
           actions: <Widget>[
             GestureDetector(
               child: Container(child:Icon(Icons.search),margin:EdgeInsets.fromLTRB(1.0, 0.0, 13.0, 0.0),),
@@ -130,62 +129,7 @@ class AppState extends State<App>
                         child: Container(
                         margin: EdgeInsets.fromLTRB(20.0, 80.0, 20.0, 0.0),
                         alignment: Alignment.center,
-                        child: /*Stack(
-                          alignment: Alignment.center,
-                          children: <Widget>[
-                                      Column(
-                                            mainAxisAlignment: MainAxisAlignment.center,
-                                            children:<Widget>[
-                                            Text(content['main']['temp'].toString() + "°C",style: new TextStyle( fontFamily: "Quantico",color: Colors.white,fontSize: 49.9, fontStyle: FontStyle.normal, fontWeight: FontWeight.w500),),
-                                            Row(
-                                              crossAxisAlignment: CrossAxisAlignment.center,
-                                              mainAxisAlignment: MainAxisAlignment.center,
-                                              children:<Widget>[Text('Humidity:',style: TextStyle( fontFamily: "Quantico",color: Colors.cyan),),Text(content['main']['humidity'].toString(),style: TextStyle(fontFamily: "Quantico"),)]
-                                            ),
-                                            Row(
-                                              crossAxisAlignment: CrossAxisAlignment.center,
-                                              mainAxisAlignment: MainAxisAlignment.center,
-                                              children:<Widget>[
-                                                Text('Min. Temp:\t',style: TextStyle( fontFamily: "Quantico",color: Colors.red)),Text((content['main']['temp_max']).toString(),style: TextStyle(fontFamily: "Quantico"),)
-                                                ]
-                                            ),
-                                            Row(
-                                              crossAxisAlignment: CrossAxisAlignment.center,
-                                              mainAxisAlignment: MainAxisAlignment.center,
-                                              children:<Widget>[
-                                                Text('Max. Temp:\t',style: TextStyle( fontFamily: "Quantico",color: Colors.green)),Text((content['main']['temp_min']+3).toString(),style: TextStyle(fontFamily: "Quantico"),)
-                                                ]
-                                            )
-                                          ]
-                                      ),
-                                      SizedBox(
-                                        height: 240.0,
-                                        width: 240.0,
-                                        child:CircularProgressIndicator(
-                                          value: content['main']['humidity']/100,
-                                          valueColor: AlwaysStoppedAnimation(Colors.cyan),
-                                          strokeWidth: 6.0,
-                                      )),
-                                      SizedBox(
-                                        height: 290.0,
-                                        width: 290.0,
-                                        child:CircularProgressIndicator(
-                                          value: content['main']['temp_max']/(content['main']['temp_max']+5),
-                                          valueColor: AlwaysStoppedAnimation(Colors.green),
-                                          strokeWidth: 8.0,
-                                      )),
-                                      SizedBox(
-                                        height: 290.0,
-                                        width: 290.0,
-                                        child:CircularProgressIndicator(
-                                          value: content['main']['temp_min']/(content['main']['temp_min']+10),
-                                          valueColor: AlwaysStoppedAnimation(Colors.red),
-                                          strokeWidth: 8.0,
-                                      )),
-
-                          ],
-                        )*/
-                         new CustomPaint(
+                        child: new CustomPaint(
                               isComplex:true,
                               child: new CustomPaint(
                                         isComplex: true,
@@ -284,11 +228,9 @@ class CircleProgressBarPainter extends CustomPainter {
       ..style = PaintingStyle.stroke;
     final radius = (shortestSide / 2);
 
-    // Start at the top. 0 radians represents the right edge
     final double startAngle = -(2 * Math.pi * 0.25);
     final double sweepAngle = (2 * Math.pi * (this.percentage ?? 0));
 
-    // Don't draw the background if we don't have a background color
     if (this.backgroundColor != null) {
       final backgroundPaint = Paint()
         ..color = this.backgroundColor
